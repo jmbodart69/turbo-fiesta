@@ -1,0 +1,42 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+To insert code chunks use either:
+Ctrl+Alt+I
+or
+Code -> Insert Chunk
+ 
+Packages
+```{r setup}
+library(ggplot2)
+# library(readr)
+library(haven)
+```
+
+
+Data
+```{r}
+# get data from "https://github.com/philbowsher/Foundation-of-the-R-Workflow-workshop-2019-09-06/raw/master/Examples/data/dmae.sas7bdat"
+
+dmae <- read_sas("https://github.com/philbowsher/Foundation-of-the-R-Workflow-workshop-2019-09-06/raw/master/Examples/data/dmae.sas7bdat", 
+    NULL)
+dmae
+
+```
+
+Addins : "No addins found" 
+-> install.packages("esquisse")
+AddIns -> ggplot2 builder
+
+
+Viz
+```{r}
+ggplot(dmae) +
+  aes(x = RACE, fill = ARM, weight = AGE) +
+  geom_bar() +
+  scale_fill_hue(direction = 1) +
+  theme_minimal()
+```
+

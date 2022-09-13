@@ -1,4 +1,5 @@
 library(usethis)
+# retrieve from environment variables setup in .Renviron file
 use_git_config(user.name = Sys.getenv("user_name"), 
                user.email = Sys.getenv("user_email"))
 
